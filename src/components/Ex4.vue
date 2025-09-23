@@ -3,10 +3,14 @@
         data() {
             return {
                 // Add code here
+                id : "",
+                
             }
         },
         methods: { 
    			// Add code here
+
+
 		}
     }
 </script>
