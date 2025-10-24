@@ -1,21 +1,20 @@
+
 <script>
     export default { 
         data() {
             return {
                 // Add code here
-                currentColor: "redBox",
-                id: "demo1"
-
+                    id: "demo1",       // bind to the div id
+                    isBlue: true
             }
         },
         methods: { 
    			// Add code here
-            changeColor(){
-                this.currentColor = this.currentColor === "redBox" ? "blueBox" : "redBox";
-            }
-            
-
+            toggleColor() {
+            this.isBlue = !this.isBlue;
+        
 		}
+    }
     }
 </script>
 
@@ -23,10 +22,12 @@
     
     <!-- Modify code here -->
     <div class="container">
-        <div v-bind:id="id" :class="[currentColor, 'm-2']">
+        <div :id="id" class="m-2" :class="{ 'blueBox': isBlue, 'redBox': !isBlue }">
             div ID : {{id}} 
         </div>
-        <button type="button" @click="changeColor">Change Color</button>
+        
+        <button type="button" :class="{'btn btn-primary':isBlue, 'btn btn-danger': !isBlue}"
+        v-on:click="toggleColor">Change Color</button>
     </div>
 
 </template>
@@ -37,7 +38,6 @@
     }
     .blueBox {
         background-color: blue;
-        color: white;
     }
     #demo1 {
         color: white;
